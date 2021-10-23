@@ -1,13 +1,13 @@
 const jwt = require('jsonwebtoken')
 
 exports.verifyToken =(req,res,next)=>{
-    const Authorization = req.header('authorization')
+    const authorization = req.header('authorization')
 
-    if(!Authorization){
+    if(!authorization){
         // error: chuwnsg thuwcj
     }
     // get tokens
-    const token = Authorization.replace('Bearer ', '')
+    const token = authorization.replace('Bearer ', '')
     //verify token
     const {userId}  = jwt.verify(token, process.env.APP_SECRET)
     // Gan cho req
